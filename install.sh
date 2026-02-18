@@ -40,7 +40,7 @@ while [[ $# -gt 0 ]]; do
             echo ""
             echo "Options:"
             echo "  --lang, -l <zh|en|all>  Language version to install"
-            echo "                          zh = Chinese (prd-writer)"
+            echo "                          zh = Chinese (prd-writer-zh)"
             echo "                          en = English (prd-writer-en)"
             echo "                          all = Both versions"
             echo "  --help, -h              Show this help message"
@@ -90,7 +90,7 @@ echo -e "${BLUE}[3/5] Select language / 选择语言:${NC}"
 
 if [ -z "$LANG_CHOICE" ]; then
     # Interactive mode
-    echo -e "  ${CYAN}1)${NC} 中文 (Chinese) - prd-writer"
+    echo -e "  ${CYAN}1)${NC} 中文 (Chinese) - prd-writer-zh"
     echo -e "  ${CYAN}2)${NC} English - prd-writer-en"
     echo -e "  ${CYAN}3)${NC} All / 全部 - both versions"
     echo ""
@@ -108,15 +108,15 @@ SKILL_FOLDERS=""
 
 case $LANG_CHOICE in
     zh|1)
-        SKILL_FOLDERS="PRD-WRITER"
-        echo -e "${GREEN}✓ Selected: Chinese (prd-writer)${NC}"
+        SKILL_FOLDERS="prd-writer/zh"
+        echo -e "${GREEN}✓ Selected: Chinese (prd-writer-zh)${NC}"
         ;;
     en|2)
-        SKILL_FOLDERS="PRD-WRITER-EN"
+        SKILL_FOLDERS="prd-writer/en"
         echo -e "${GREEN}✓ Selected: English (prd-writer-en)${NC}"
         ;;
     all|3)
-        SKILL_FOLDERS="PRD-WRITER PRD-WRITER-EN"
+        SKILL_FOLDERS="prd-writer/zh prd-writer/en"
         echo -e "${GREEN}✓ Selected: All (both versions)${NC}"
         ;;
     *)
@@ -203,6 +203,6 @@ echo -e "Skills location: ${SKILLS_DIR}"
 echo ""
 echo -e "To use a skill, run:"
 echo -e "  ${BLUE}claude${NC}"
-echo -e "  ${BLUE}> /prd-writer${NC}      (Chinese version)"
+echo -e "  ${BLUE}> /prd-writer-zh${NC}   (Chinese version)"
 echo -e "  ${BLUE}> /prd-writer-en${NC}   (English version)"
 echo ""

@@ -4,7 +4,7 @@ A collection of Claude Code skills for collaborative PRD (Product Requirements D
 
 ## Skills Included
 
-### prd-writer (Chinese)
+### prd-writer-zh (Chinese)
 
 A confirmation-driven PRD writing skill that helps you create structured, comprehensive product requirements documents through interactive dialogue.
 
@@ -38,7 +38,7 @@ cd lixin-pm-skills
 ```
 
 You will be prompted to select a language:
-- **1) 中文 (Chinese)** - installs `prd-writer`
+- **1) 中文 (Chinese)** - installs `prd-writer-zh`
 - **2) English** - installs `prd-writer-en`
 - **3) All / 全部** - installs both versions
 
@@ -57,10 +57,10 @@ Copy the skill folder to your Claude Code skills directory:
 
 ```bash
 # Chinese version
-cp -r PRD-WRITER ~/.claude/skills/prd-writer
+cp -r prd-writer/zh ~/.claude/skills/prd-writer-zh
 
 # English version
-cp -r PRD-WRITER-EN ~/.claude/skills/prd-writer-en
+cp -r prd-writer/en ~/.claude/skills/prd-writer-en
 ```
 
 ## Usage
@@ -74,7 +74,7 @@ claude
 Then invoke the skill:
 
 ```
-/prd-writer        # Chinese version
+/prd-writer-zh     # Chinese version
 /prd-writer-en     # English version
 ```
 
@@ -91,27 +91,27 @@ I need to write a PRD for a user login feature
 ## Skill Structure
 
 ```
-PRD-WRITER/              # Chinese version
-├── SKILL.md              # Main skill definition and prompt
-├── assets/
-│   └── prd-template.md   # Final PRD output template
-└── references/
-    ├── example-us01.md          # Example user story
-    ├── mermaid-examples.md      # Mermaid diagram examples
-    ├── ui-wireframe-examples.md # ASCII wireframe standards
-    ├── prd-registry-demo.md     # PRD version management example
-    └── strategy-card-example.md # Product strategy card template
-
-PRD-WRITER-EN/           # English version
-├── SKILL.md
-├── assets/
-│   └── prd-template.md
-└── references/
-    ├── example-us01.md
-    ├── mermaid-examples.md
-    ├── ui-wireframe-examples.md
-    ├── prd-registry-demo.md
-    └── strategy-card-example.md
+prd-writer/              # Unified skill folder
+├── zh/                  # Chinese sub-skill
+│   ├── SKILL.md         # Main skill definition and prompt
+│   ├── assets/
+│   │   └── prd-template.md   # Final PRD output template
+│   └── references/
+│       ├── example-us01.md          # Example user story
+│       ├── mermaid-examples.md      # Mermaid diagram examples
+│       ├── ui-wireframe-examples.md # ASCII wireframe standards
+│       ├── prd-registry-demo.md     # PRD version management example
+│       └── strategy-card-example.md # Product strategy card template
+└── en/                  # English sub-skill
+    ├── SKILL.md
+    ├── assets/
+    │   └── prd-template.md
+    └── references/
+        ├── example-us01.md
+        ├── mermaid-examples.md
+        ├── ui-wireframe-examples.md
+        ├── prd-registry-demo.md
+        └── strategy-card-example.md
 ```
 
 ## Workflow

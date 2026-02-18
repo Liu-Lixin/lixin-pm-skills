@@ -4,19 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Claude Code skill definition project** for collaborative PRD (Product Requirements Document) writing. The main skills are defined in `PRD-WRITER/` (Chinese) and `PRD-WRITER-EN/` (English), used when users want to draft/write/refine PRD, requirements documents, user stories, and acceptance criteria.
+This is a **Claude Code skill definition project** for collaborative PRD (Product Requirements Document) writing. The main skills are defined in `prd-writer/zh/` (Chinese) and `prd-writer/en/` (English), used when users want to draft/write/refine PRD, requirements documents, user stories, and acceptance criteria.
 
 ## Bilingual Support
 
 This project provides two language versions:
-- **PRD-WRITER/** - Chinese version (`prd-writer` skill)
-- **PRD-WRITER-EN/** - English version (`prd-writer-en` skill)
+- **prd-writer/zh/** - Chinese version (`prd-writer-zh` skill)
+- **prd-writer/en/** - English version (`prd-writer-en` skill)
 
 Both versions share the same workflow and principles, with translated content.
 
 ## Key Files
 
-### Chinese Version (PRD-WRITER/)
+### Chinese Version (prd-writer/zh/)
 - `SKILL.md` - Main skill definition with the complete prompt template and workflow
 - `assets/prd-template.md` - Final PRD output template structure
 - `references/example-us01.md` - Example of a properly formatted user story
@@ -25,7 +25,7 @@ Both versions share the same workflow and principles, with translated content.
 - `references/prd-registry-demo.md` - PRD version management registry example
 - `references/strategy-card-example.md` - Product strategy card example for Step 0 alignment
 
-### English Version (PRD-WRITER-EN/)
+### English Version (prd-writer/en/)
 Same structure as Chinese version with translated content.
 
 ## Architecture: Confirmation-Driven Workflow
