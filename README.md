@@ -4,7 +4,7 @@ A collection of Claude Code skills for collaborative PRD (Product Requirements D
 
 ## Skills Included
 
-### prd-writer
+### prd-writer (Chinese)
 
 A confirmation-driven PRD writing skill that helps you create structured, comprehensive product requirements documents through interactive dialogue.
 
@@ -15,6 +15,10 @@ A confirmation-driven PRD writing skill that helps you create structured, compre
 - Strict confirmation checkpoints to ensure alignment
 - Product strategy alignment for complex requirements
 - Graded quantification (P0 metrics must be quantifiable)
+
+### prd-writer-en (English)
+
+English version of the PRD writing skill with the same features and workflow.
 
 ## Installation
 
@@ -33,17 +37,30 @@ cd lixin-pm-skills
 ./install.sh
 ```
 
-The installer will:
-1. Check if Claude CLI is installed
-2. Detect all skills in the repository
-3. Install them to `~/.claude/skills/`
+You will be prompted to select a language:
+- **1) 中文 (Chinese)** - installs `prd-writer`
+- **2) English** - installs `prd-writer-en`
+- **3) All / 全部** - installs both versions
+
+### Command Line Options
+
+```bash
+./install.sh --lang zh    # Install Chinese version only
+./install.sh --lang en    # Install English version only
+./install.sh --lang all   # Install both versions
+./install.sh --help       # Show help
+```
 
 ### Manual Installation
 
 Copy the skill folder to your Claude Code skills directory:
 
 ```bash
+# Chinese version
 cp -r PRD-WRITER ~/.claude/skills/prd-writer
+
+# English version
+cp -r PRD-WRITER-EN ~/.claude/skills/prd-writer-en
 ```
 
 ## Usage
@@ -57,7 +74,8 @@ claude
 Then invoke the skill:
 
 ```
-/prd-writer
+/prd-writer        # Chinese version
+/prd-writer-en     # English version
 ```
 
 Or simply start describing your PRD needs and Claude will recognize when to use the skill:
@@ -66,10 +84,14 @@ Or simply start describing your PRD needs and Claude will recognize when to use 
 我需要写一个用户登录功能的PRD
 ```
 
+```
+I need to write a PRD for a user login feature
+```
+
 ## Skill Structure
 
 ```
-PRD-WRITER/
+PRD-WRITER/              # Chinese version
 ├── SKILL.md              # Main skill definition and prompt
 ├── assets/
 │   └── prd-template.md   # Final PRD output template
@@ -79,6 +101,17 @@ PRD-WRITER/
     ├── ui-wireframe-examples.md # ASCII wireframe standards
     ├── prd-registry-demo.md     # PRD version management example
     └── strategy-card-example.md # Product strategy card template
+
+PRD-WRITER-EN/           # English version
+├── SKILL.md
+├── assets/
+│   └── prd-template.md
+└── references/
+    ├── example-us01.md
+    ├── mermaid-examples.md
+    ├── ui-wireframe-examples.md
+    ├── prd-registry-demo.md
+    └── strategy-card-example.md
 ```
 
 ## Workflow
@@ -99,7 +132,7 @@ The skill follows a **confirmation-driven** interaction model:
    - Get single-point confirmation before moving on
 
 4. **Step 3**: Final Review & Generation
-   - Explicit "可以生成" confirmation required
+   - Explicit "ready to generate" confirmation required
    - Output final PRD document
 
 ## Creating Your Own Skills

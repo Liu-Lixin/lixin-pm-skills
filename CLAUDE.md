@@ -4,10 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Claude Code skill definition project** for collaborative PRD (Product Requirements Document) writing. The main skill is defined in `SKILL.md` and is used when users want to 梳理/撰写/完善 PRD、需求文档、用户故事、验收标准.
+This is a **Claude Code skill definition project** for collaborative PRD (Product Requirements Document) writing. The main skills are defined in `PRD-WRITER/` (Chinese) and `PRD-WRITER-EN/` (English), used when users want to draft/write/refine PRD, requirements documents, user stories, and acceptance criteria.
+
+## Bilingual Support
+
+This project provides two language versions:
+- **PRD-WRITER/** - Chinese version (`prd-writer` skill)
+- **PRD-WRITER-EN/** - English version (`prd-writer-en` skill)
+
+Both versions share the same workflow and principles, with translated content.
 
 ## Key Files
 
+### Chinese Version (PRD-WRITER/)
 - `SKILL.md` - Main skill definition with the complete prompt template and workflow
 - `assets/prd-template.md` - Final PRD output template structure
 - `references/example-us01.md` - Example of a properly formatted user story
@@ -16,14 +25,17 @@ This is a **Claude Code skill definition project** for collaborative PRD (Produc
 - `references/prd-registry-demo.md` - PRD version management registry example
 - `references/strategy-card-example.md` - Product strategy card example for Step 0 alignment
 
+### English Version (PRD-WRITER-EN/)
+Same structure as Chinese version with translated content.
+
 ## Architecture: Confirmation-Driven Workflow
 
-The PRD writing skill follows a strict **"确认驱动" (confirmation-driven)** interaction model:
+The PRD writing skill follows a strict **confirmation-driven** interaction model:
 
 0. **Step 0: Product Strategy Alignment (Optional)** - Triggered for complex requirements. Guide user to define problem, value hypothesis (user/business value), success metrics (P0 must be quantified), and boundaries/trade-offs including rejected requirements
 1. **Step 1: Define Framework & Seek Alignment** - Guide user to establish the core user journey map/business flow with phases, then confirm with Mermaid flowchart
 2. **Step 2: Detail Stories & Confirm Each Point** - Discuss each user story systematically with value type, priority, success metrics; draw ASCII wireframes for UI stories; add product decision log for important requirements; get single-point confirmation before moving to next story
-3. **Step 3: Final Review & Generation** - Request explicit "可以生成" (ready to generate) confirmation before outputting final PRD
+3. **Step 3: Final Review & Generation** - Request explicit "ready to generate" confirmation before outputting final PRD
 
 ## Core Principles
 
