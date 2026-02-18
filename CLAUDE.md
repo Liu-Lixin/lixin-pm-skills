@@ -14,13 +14,15 @@ This is a **Claude Code skill definition project** for collaborative PRD (Produc
 - `references/mermaid-examples.md` - Mermaid diagram examples (flowchart, state, sequence)
 - `references/ui-wireframe-examples.md` - ASCII wireframe quality standards and examples
 - `references/prd-registry-demo.md` - PRD version management registry example
+- `references/strategy-card-example.md` - Product strategy card example for Step 0 alignment
 
-## Architecture: Three-Step Confirmation Workflow
+## Architecture: Confirmation-Driven Workflow
 
 The PRD writing skill follows a strict **"确认驱动" (confirmation-driven)** interaction model:
 
+0. **Step 0: Product Strategy Alignment (Optional)** - Triggered for complex requirements. Guide user to define problem, value hypothesis (user/business value), success metrics (P0 must be quantified), and boundaries/trade-offs including rejected requirements
 1. **Step 1: Define Framework & Seek Alignment** - Guide user to establish the core user journey map/business flow with phases, then confirm with Mermaid flowchart
-2. **Step 2: Detail Stories & Confirm Each Point** - Discuss each user story systematically, draw ASCII wireframes for UI stories, get single-point confirmation before moving to next story
+2. **Step 2: Detail Stories & Confirm Each Point** - Discuss each user story systematically with value type, priority, success metrics; draw ASCII wireframes for UI stories; add product decision log for important requirements; get single-point confirmation before moving to next story
 3. **Step 3: Final Review & Generation** - Request explicit "可以生成" (ready to generate) confirmation before outputting final PRD
 
 ## Core Principles
@@ -29,6 +31,9 @@ The PRD writing skill follows a strict **"确认驱动" (confirmation-driven)** 
 - **Visual Alignment Required**: UI stories MUST include ASCII wireframes; dynamic behavior uses Mermaid diagrams
 - **Never Guess**: All content must come from user dialogue - no assumptions or made-up details
 - **One-Question-One-Answer-One-Confirmation**: Interactive rhythm with explicit confirmation checkpoints
+- **Product Strategy First**: For complex requirements, align on problem definition, value hypothesis, and success metrics before diving into stories
+- **Graded Quantification**: P0 requirements must have quantifiable success metrics; P1/P2 can be qualitative
+- **Record Decisions**: Document product decision logs for important requirements and explicitly record "not doing" decisions with reasons
 
 ## PRD Version Management
 
