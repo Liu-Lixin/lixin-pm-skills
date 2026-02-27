@@ -1,10 +1,10 @@
-# Claude Code Skills - PRD Writer
+# Claude Code Skills Collection
 
-A collection of Claude Code skills for collaborative PRD (Product Requirements Document) writing.
+A curated collection of Claude Code skills for product management, design collaboration, and content creation workflows.
 
 ## Skills Included
 
-### prd-writer-zh (Chinese)
+### prd-writer-zh (Chinese PRD Writer)
 
 A confirmation-driven PRD writing skill that helps you create structured, comprehensive product requirements documents through interactive dialogue.
 
@@ -16,9 +16,50 @@ A confirmation-driven PRD writing skill that helps you create structured, compre
 - Product strategy alignment for complex requirements
 - Graded quantification (P0 metrics must be quantifiable)
 
-### prd-writer-en (English)
+**Usage:** Invoke with `/prd-writer-zh` or simply describe your PRD needs in Chinese:
+```
+我需要写一个用户登录功能的PRD
+```
 
-English version of the PRD writing skill with the same features and workflow.
+### prd-writer-en (English PRD Writer)
+
+English version of the PRD writing skill with the same features and workflow as the Chinese version.
+
+**Usage:** Invoke with `/prd-writer-en` or describe your PRD needs in English:
+```
+I need to write a PRD for a user login feature
+```
+
+### ui-design (UI Collaboration Workflow)
+
+A structured workflow for UI style modifications that reduces miscommunication through systematic collaboration: screenshot localization → current state description → solution proposals → code changes → fine-tuning.
+
+**Key Features:**
+- Screenshot-first communication
+- ASCII wireframes for layout proposals
+- Iterative refinement with clear checkpoints
+- No assumptions - every change is confirmed before implementation
+
+**Usage:** Invoke with `/ui-design` or describe UI changes in Chinese:
+```
+我想调整这个页面的布局
+```
+
+### image-assistant (Infographic Generator)
+
+Transforms article/module content into consistent, readable 16:9 infographic prompts with minimal text. Follows a structured workflow: requirement clarification → image planning → copy finalization → prompt generation → iteration.
+
+**Key Features:**
+- Multi-stage workflow from content analysis to ready-to-use image prompts
+- High-readability design principles (large fonts, minimal text, clear hierarchy)
+- Batch prompt generation for multiple images
+- Built-in iteration and refinement
+
+**Usage:** Invoke with `/image-assistant` or request image generation in Chinese:
+```
+这段内容做几张配图
+给我三张出图提示词
+```
 
 ## Installation
 
@@ -26,74 +67,45 @@ English version of the PRD writing skill with the same features and workflow.
 
 - [Claude Code CLI](https://claude.ai/code) installed on your system
 
-### Quick Install
+### Setup
+
+1. Clone this repository into your Claude Code skills directory:
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/lixin-pm-skills.git
-cd lixin-pm-skills
+# If ~/.claude/skills doesn't exist yet
+mkdir -p ~/.claude/skills
 
-# Run the installer
-./install.sh
+# Clone directly into the skills directory
+cd ~/.claude/skills
+git clone <your-repo-url> .
 ```
 
-You will be prompted to select a language:
-- **1) 中文 (Chinese)** - installs `prd-writer-zh`
-- **2) English** - installs `prd-writer-en`
-- **3) All / 全部** - installs both versions
-
-### Command Line Options
+Or manually copy individual skill folders:
 
 ```bash
-./install.sh --lang zh    # Install Chinese version only
-./install.sh --lang en    # Install English version only
-./install.sh --lang all   # Install both versions
-./install.sh --help       # Show help
+# Copy specific skills
+cp -r /path/to/repo/prd-writer-zh ~/.claude/skills/
+cp -r /path/to/repo/prd-writer-en ~/.claude/skills/
+cp -r /path/to/repo/ui-design ~/.claude/skills/
+cp -r /path/to/repo/image-assistant ~/.claude/skills/
 ```
 
-### Manual Installation
-
-Copy the skill folder to your Claude Code skills directory:
-
-```bash
-# Chinese version
-cp -r prd-writer/zh ~/.claude/skills/prd-writer-zh
-
-# English version
-cp -r prd-writer/en ~/.claude/skills/prd-writer-en
-```
-
-## Usage
-
-After installation, use the skill in Claude Code:
+2. Restart Claude Code or reload skills:
 
 ```bash
 claude
 ```
 
-Then invoke the skill:
+The skills will be automatically detected and available for use.
+
+## Repository Structure
 
 ```
-/prd-writer-zh     # Chinese version
-/prd-writer-en     # English version
-```
-
-Or simply start describing your PRD needs and Claude will recognize when to use the skill:
-
-```
-我需要写一个用户登录功能的PRD
-```
-
-```
-I need to write a PRD for a user login feature
-```
-
-## Skill Structure
-
-```
-prd-writer/              # Unified skill folder
-├── zh/                  # Chinese sub-skill
-│   ├── SKILL.md         # Main skill definition and prompt
+.
+├── README.md              # This file
+├── CLAUDE.md              # Instructions for Claude Code when working with this repository
+├── prd-writer-zh/         # Chinese PRD writing skill
+│   ├── SKILL.md           # Main skill definition and prompt
 │   ├── assets/
 │   │   └── prd-template.md   # Final PRD output template
 │   └── references/
@@ -102,21 +114,31 @@ prd-writer/              # Unified skill folder
 │       ├── ui-wireframe-examples.md # ASCII wireframe standards
 │       ├── prd-registry-demo.md     # PRD version management example
 │       └── strategy-card-example.md # Product strategy card template
-└── en/                  # English sub-skill
+├── prd-writer-en/         # English PRD writing skill
+│   ├── SKILL.md
+│   ├── assets/
+│   │   └── prd-template.md
+│   └── references/
+│       ├── example-us01.md
+│       ├── mermaid-examples.md
+│       ├── ui-wireframe-examples.md
+│       ├── prd-registry-demo.md
+│       └── strategy-card-example.md
+├── ui-design/             # UI collaboration workflow skill
+│   └── SKILL.md
+└── image-assistant/       # Infographic generator skill
     ├── SKILL.md
-    ├── assets/
-    │   └── prd-template.md
-    └── references/
-        ├── example-us01.md
-        ├── mermaid-examples.md
-        ├── ui-wireframe-examples.md
-        ├── prd-registry-demo.md
-        └── strategy-card-example.md
+    └── stages/            # Multi-stage workflow definitions
+        ├── 01-brief.md
+        ├── 02-plan.md
+        ├── 03-copy.md
+        ├── 04-prompts.md
+        └── 05-iterate.md
 ```
 
-## Workflow
+## PRD Writer Workflow
 
-The skill follows a **confirmation-driven** interaction model:
+Both PRD writer skills (Chinese and English) follow a **confirmation-driven** interaction model:
 
 1. **Step 0 (Optional)**: Product Strategy Alignment
    - Define problem, value hypothesis, success metrics
@@ -135,12 +157,9 @@ The skill follows a **confirmation-driven** interaction model:
    - Explicit "ready to generate" confirmation required
    - Output final PRD document
 
-## Creating Your Own Skills
+## Creating Custom Skills
 
-To add a new skill to this repository:
-
-1. Create a new directory with your skill name
-2. Add a `SKILL.md` file with YAML frontmatter:
+Skills in this repository follow the Claude Code skill format. Each skill is defined in a `SKILL.md` file with YAML frontmatter:
 
 ```markdown
 ---
@@ -153,11 +172,24 @@ description: Brief description of what the skill does
 Your skill prompt content here...
 ```
 
-3. Run `./install.sh` to install the new skill
+Place the skill in its own directory within `~/.claude/skills/` and Claude Code will automatically detect it.
+
+For detailed guidance on creating effective skills, refer to the `document-skills:skill-creator` skill or [Claude Code documentation](https://claude.ai/code).
+
+## Version Management
+
+This repository uses git for version control. When making changes:
+
+1. Work on a feature branch
+2. Commit changes with clear, descriptive messages
+3. Test skills thoroughly before merging to main
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit issues or pull requests.
+Contributions are welcome! Feel free to:
+- Report issues or suggest improvements
+- Submit pull requests with new skills or enhancements
+- Share feedback on existing skills
 
 ## License
 

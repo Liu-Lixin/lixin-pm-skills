@@ -124,5 +124,12 @@ sequenceDiagram
     *   **Reason**: [Why this choice was made]
     *   **Rejected Alternatives**: [Explicitly record alternatives not chosen and why]
 ---
+*   **Analytics Requirements**: <!-- Required for stories involving user interactions -->
+    *   **Analytics Events**:
+        | Interaction | Event Name | Priority | Extra Fields |
+        |-------------|-----------|----------|--------------|
+        | [Event description] | [event_name] | P0/P1/P2 | [Field list] |
+    *   **Analytics Notes**: [Why these events are needed, how they support success metrics]
+---
 (Next user story...)
 ```
